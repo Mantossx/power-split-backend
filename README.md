@@ -1,23 +1,62 @@
-# Power Split Bill(Backend)
+# Power Split Bill Backend
 
-The robust backend API for the Power Split Bill application. This service handles image processing (OCR), data persistence, and complex splitting logic.
+This is the backend API service for the Power Split Bill application. It handles receipt image processing using Tesseract OCR, manages database records for bills and participants, and executes the logic for splitting costs including tax and service charges.
 
-## Tech Stack
-- **Framework:** FastAPI (Python)
-- **OCR Engine:** Tesseract OCR
-- **Database:** PostgreSQL (Production) / SQLite (Local)
-- **ORM:** SQLAlchemy
-- **Deployment:** Docker support included
+## Technology Stack
 
-## Key Features
-- **OCR Scanning:** Extracts menu items and prices from receipt images.
-- **Bill Management:** Create, Read, Update, and Delete (CRUD) bills.
-- **Smart Calculation:** Handles tax, service charge, and splitting logic.
-- **History System:** Tracks past bills with hard-reset capability.
+* **Language:** Python 3.9+
+* **Framework:** FastAPI
+* **OCR Engine:** Tesseract OCR
+* **Database:** PostgreSQL (Production) / SQLite (Local)
+* **Deployment:** Docker / Render
 
-## How to Run Locally
+## System Requirements
 
-1. **Clone the repository**
-   ```bash
-   git clone [https://github.com/YOUR_USERNAME/power-split-backend.git](https://github.com/YOUR_USERNAME/power-split-backend.git)
-   cd power-split-backend
+Before running the project, ensure you have the following installed on your system:
+
+1.  **Python 3.9** or higher.
+2.  **Git**.
+3.  **Tesseract OCR** (System Dependency):
+    * **Windows:** Download and install from UB-Mannheim Tesseract GitHub. Add the installation path to your System PATH variables.
+    * **macOS:** `brew install tesseract`
+    * **Linux:** `sudo apt-get install tesseract-ocr`
+
+## Installation Guide
+
+Follow the steps below based on your operating system to set up the project.
+
+### Option A: Setup for Windows
+
+```powershell
+1. Clone the repository
+git clone [https://github.com/Mantossx/power-split-backend.git](https://github.com/Mantossx/power-split-backend.git)
+cd power-split-backend
+
+2. Create and activate virtual environment
+python -m venv venv
+venv\Scripts\activate
+
+3. Install Python dependencies
+pip install -r requirements.txt
+```
+
+### Option B: Setup for macOS / Linux
+
+```powershell
+
+1. Clone the repository
+git clone [https://github.com/Mantossx/power-split-backend.git](https://github.com/Mantossx/power-split-backend.git)
+cd power-split-backend
+
+2. Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+3. Install Python dependencies
+pip install -r requirements.txt
+```
+
+## Running the Server
+```
+uvicorn app.main:app --reload
+```
